@@ -62,4 +62,6 @@ COPY --from=browser --chown=${USERNAME}:${USERNAME} ${PLAYWRIGHT_BROWSERS_PATH} 
 COPY --chown=${USERNAME}:${USERNAME} cli.js package.json browserConfig.json ./
 
 # Run the MCP server headless on port 3000 using the bundled browser config
-ENTRYPOINT ["node", "cli.js", "--headless", "--isolated", "--browser", "chromium", "--port", "3000", "--config", "browserConfig.json", "--no-sandbox"]
+ENTRYPOINT ["node", "cli.js", "--headless", "--isolated", "--browser", "chromium", "--port", "3000", "--config", "browserConfig.json" ]
+
+EXPOSE 3000
