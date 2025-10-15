@@ -11,5 +11,8 @@
   },
   "network": {
     "allowedOrigins": ["https://*", "wss://*"]
+  },
+  "server": {
+    "allowedHosts": ["*"]
   }
 }
