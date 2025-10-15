@@ -1,0 +1,15 @@
+{
+  "browser": {
+    "browserName": "chromium",
+    "launchOptions": {
+      "headless": false
+    },
+    "contextOptions": {
+      "acceptDownloads": false,
+      "serviceWorkers": "block"
+    }
+  },
+  "network": {
+    "allowedOrigins": ["https://*", "wss://*"]
+  }
+}

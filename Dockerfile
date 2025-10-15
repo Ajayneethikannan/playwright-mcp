@@ -59,7 +59,7 @@ RUN chown -R ${USERNAME}:${USERNAME} node_modules
 USER ${USERNAME}
 
 COPY --from=browser --chown=${USERNAME}:${USERNAME} ${PLAYWRIGHT_BROWSERS_PATH} ${PLAYWRIGHT_BROWSERS_PATH}
-COPY --chown=${USERNAME}:${USERNAME} cli.js package.json ./
+COPY --chown=${USERNAME}:${USERNAME} cli.js package.json browserConfig.json ./
 
-# Run in headless and only with chromium (other browsers need more dependencies not included in this image)
-ENTRYPOINT ["node", "cli.js", "--headless", "--browser", "chromium", "--no-sandbox"]
+# Run the MCP server headless on port 3000 using the bundled browser config
+ENTRYPOINT ["node", "cli.js", "--headless", "--isolated", "--browser", "chromium", "--port", "3000", "--config", "browserConfig.json", "--no-sandbox"]
